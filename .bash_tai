@@ -22,6 +22,10 @@ if tput setaf 1 &> /dev/null; then
   violet=$(tput setaf 61);
   white=$(tput setaf 15);
   yellow=$(tput setaf 136);
+
+  palegreen=$(tput setaf 2);
+  teal=$(tput setaf 6);
+  grey=$(tput setaf 7);
 else
   bold='';
   reset="\e[0m";
@@ -35,6 +39,10 @@ else
   violet="\e[1;35m";
   white="\e[1;37m";
   yellow="\e[1;33m";
+
+  palegreen="\e[1;92m";
+  teal="\e[1;96m";
+  grey="\e[1;37m";
 fi;
 
 # Highlight the user name when logged in as root.
@@ -57,7 +65,7 @@ PS1="\[\033]0;\w\007\]";
 PS1+="\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\]@";
-PS1+="\[${hostStyle}\]\h"; # host
+PS1+="\[${hostStyle}\]\h\[${reset}\]"; # host
 PS1+="\[${white}\]: ";
 PS1+="\[${cyan}\]\w"; # working directory
 PS1+="\n";
